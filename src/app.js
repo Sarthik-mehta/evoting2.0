@@ -69,7 +69,7 @@ App = {
   
       //render account
       $('#account').html(App.account);
-  
+      
       //render Candidates
       await App.renderCandidates();
   
@@ -92,8 +92,10 @@ App = {
         
   
         // Create the html for the task
+        document.getElementById("cards").style.display = "inline-block";
         const $newCandidateTemplate = $candidateTemplate.clone()
-        $newCandidateTemplate.find('.candidateName').html("Candidate Name: "+candidateName)
+        $newCandidateTemplate.find('.candidateNum').html("Candidate Number: "+candidateId)
+        $newCandidateTemplate.find('.candidateName').html(candidateName)
         if(showVote)
         {
             $newCandidateTemplate.find('.candidateVotes').html("Votes: "+candidateVotes)
