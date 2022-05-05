@@ -1,163 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Voting System</title>
 
-    <!-- Bootstrap -->
-    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Voting System</title>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+  <!-- Bootstrap -->
+  <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  
 
-    <style>
-      main {
-        margin-top: 60px;
-      }
 
-      #content {
-        display: none;
-      }
+  <style>
+    main {
+      margin-top: 60px;
+    }
 
-      form {
-        width: 350px;
-        margin-bottom: 10px;
-      }
+    #content {
+      display: none;
+    }
 
-      ul {
-        margin-bottom: 0px;
-      }
+    form {
+      width: 350px;
+      margin-bottom: 10px;
+    }
 
-      #completedTaskList .content {
-        color: grey;
-        text-decoration: line-through;
-      }
+    ul {
+      margin-bottom: 0px;
+    }
 
-      .switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
+    #completedTaskList .content {
+      color: grey;
+      text-decoration: line-through;
+    }
 
-.switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
 
-input:checked + .slider {
-  background-color: #2196F3;
-}
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
+    input:checked+.slider {
+      background-color: #2196F3;
+    }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
+    input:focus+.slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
 
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
+    input:checked+.slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
 
-.slider.round:before {
-  border-radius: 50%;
-}
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
 
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#" target="_blank">Admin Panel</a>
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
-          <small><a class="nav-link" href="#"><span id="account"></span></a></small>
-        </li>
-      </ul>
-    </nav>
-    <div class="container-fluid">
-      <div class="row">
-        <main role="main" class="col-lg-12 d-flex justify-content-center">
-          <div id="loader" class="text-center">
-            <p class="text-center">Loading...</p>
-          </div>
-          <div id="content">
-            <form onSubmit="App.AddMyCandidate(); return false;">
-              <input id="newCandidate" type="text" class="form-control" placeholder="Add Candidate Name" required>
-              <!-- <input type="submit" hidden=""> -->
-              <button type="submit" class="btn btn-primary">Add </button>
-            </form>
-            <ul id="candidateList" class="list-unstyled">
-              <div class="candidateTemplate" class="checkbox" style="display: none">
-                <label>
-                  <!-- <input type="checkbox" /> -->
-                  <span class="candidateId">Id </span>
-                  <span class="candidateName">Name </span>
-                  <span class="candidateVotes"> Votes </span>
-                
-                </label>
-              </div>
-            </ul>
+    .slider.round:before {
+      border-radius: 50%;
+    }
+  </style>
+</head>
 
-            <h5>Hide Votes: </h5>
-            <label class="switch">
-                <input id="hvotes" type="checkbox" onclick="App.HideVotes()">
-                <span class="slider round"></span>
-            </label>
-              
-            
-          </div>
-        </main>
-      </div>
+<body>
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#" target="_blank">Admin Panel</a>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
+        <small><a class="nav-link" href="#"><span id="account"></span></a></small>
+      </li>
+    </ul>
+  </nav>
 
-      
+  <div id="invalid" style="display:none; margin-top:100px;">
+    <h1>You are not the admin, kindly go back to voting page.</h1>
+    <button class="btn-primary"><a href="index.html" style="text-decoration:none; color:white">Go Back</a></button>
+    <!-- <--//a href -->
+  </div>
+  <div class="container-fluid" id="hidder">
+    <div class="row">
+      <main role="main" class="col-lg-12 d-flex justify-content-center">
+        <div id="loader" class="text-center">
+          <p class="text-center">Loading...</p>
+        </div>
+        <div id="content">
+          <form onSubmit="App.AddMyCandidate(); return false;">
+            <input id="newCandidate" type="text" class="form-control" placeholder="Add Candidate Name" required>
+            <!-- <input type="submit" hidden=""> -->
+            <button type="submit" class="btn btn-primary">Add </button>
+          </form>
+          <ul id="candidateList" class="list-unstyled">
+            <div class="candidateTemplate" class="checkbox" style="display: none">
+              <label>
+                <!-- <input type="checkbox" /> -->
+                <span class="candidateId">Id </span>
+                <span class="candidateName">Name </span>
+                <span class="candidateVotes"> Votes </span>
+
+              </label>
+            </div>
+          </ul>
+
+          <h5>Hide Votes: </h5>
+          <label class="switch">
+            <input id="hvotes" type="checkbox" onclick="App.HideVotes()">
+            <span class="slider round"></span>
+          </label>
+
+
+        </div>
+      </main>
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@truffle/contract@4.3.5/dist/truffle-contract.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
-    
-    <script src="admin.js"></script>
-  </body>
+
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@truffle/contract@4.3.5/dist/truffle-contract.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"
+    integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+
+  <script src="admin.js"></script>
+</body>
+
 </html>

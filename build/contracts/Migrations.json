@@ -53,7 +53,7 @@
   "sourceMap": "66:352:0:-;;;90:33;;;-1:-1:-1;;;;;;90:33:0;113:10;90:33;;;66:352;5:2:-1;;;;30:1;27;20:12;5:2;66:352:0;;;;;;;",
   "deployedSourceMap": "66:352:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:352:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;127:36;;;:::i;:::-;;;;;;;;;;;;;;;;90:33;;;:::i;:::-;;;;-1:-1:-1;;;;;90:33:0;;;;;;;;;;;;;;313:103;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;313:103:0;;:::i;:::-;;127:36;;;;:::o;90:33::-;;;-1:-1:-1;;;;;90:33:0;;:::o;313:103::-;225:5;;-1:-1:-1;;;;;225:5:0;211:10;:19;196:101;;;;-1:-1:-1;;;196:101:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;375:24;:36;313:103::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract Migrations {\n  address public owner = msg.sender;\n  uint public last_completed_migration;\n\n  modifier restricted() {\n    require(\n      msg.sender == owner,\n      \"This function is restricted to the contract's owner\"\n    );\n    _;\n  }\n\n  function setCompleted(uint completed) public restricted {\n    last_completed_migration = completed;\n  }\n}\n",
-  "sourcePath": "C:\\Users\\Sarthik Mehta\\Desktop\\evoting2.0\\contracts\\Migrations.sol",
+  "sourcePath": "/Users/pranavgupta/Documents/pranav fork/evoting2.0/contracts/Migrations.sol",
   "ast": {
     "absolutePath": "project:/contracts/Migrations.sol",
     "exportedSymbols": {
@@ -915,12 +915,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x68aD316B199eb8c99B1D91411a5acadE2719b3F9",
-      "transactionHash": "0x0645463df3b62a721fbcc07788189d401c59d1ad2ea7ee9e279a5c3ef510ee27"
+      "address": "0x77071dcD249715A69A1104Fb2A3104E3080E4e1E",
+      "transactionHash": "0x9ec3d82f5e3d6e53c9eb4c318b5acfb380ffebf53eecc541729ed72b5cb0c35d"
     }
   },
-  "schemaVersion": "3.4.7",
-  "updatedAt": "2022-05-03T10:18:54.496Z",
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2022-05-05T06:23:05.544Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
