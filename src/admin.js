@@ -65,11 +65,21 @@ App = {
         return
       }
   
-      App.setLoading(true);
-  
+      
+
       //render account
       $('#account').html(App.account);
-  
+      //check if its admin
+      if (App.account.toString()!="0xfb86c40e7714a92c0dd604c93f0050b6afba1444"){
+        console.log("Reached");
+        document.getElementById("invalid").style.display = "block";
+        document.getElementById("hidder").style.display = "none";
+        
+        return;
+      }
+      
+      
+      App.setLoading(true);
       //render Candidates
       await App.renderCandidates();
 
