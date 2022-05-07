@@ -43,21 +43,27 @@
       <div class="row">
         <main role="main" class="col-lg-12 d-flex justify-content-center">
           <div id="loader" class="text-center" style="margin-top: 30px; padding: 20px;">
-            <p class="text-center">Loading...</p>
+            <p class="text-center" style="color: white;">Loading...</p>
           </div>
           <div id="content" style="margin-top: 30px; padding: 20px;">
-            <h1 class="display-4 text-white">Choose Your Candidate To Vote</h1> <br>
-            <div id="candidateList">
-              <div class="candidateTemplate" class="checkbox" style="display: none;">
-                <div class="card" id="cards" style="width: 18rem;">
-                  <div class="card-header candidateNum">Number</div>
-                  <img class="card-img-top" src="" alt="Candidate Image">
-                  <div class="card-body">
-                    <h5 class="candidateName">Name </h5>
-                    <p class="candidateVotes"> Votes</p>
-                    <button class="btn vote-btn">Vote</button>
-                  </div>
-                </div>
+            <h1 class="display-4 text-white text-center">Choose Your Candidate To Vote</h1> <br>
+            
+                <div id="candidateList" class="row">
+                  <div class="candidateTemplate" class="checkbox col-md-4" style="display: none; padding: 10px 20px;">
+                    <div class="card" id="cards" style="width: 18rem; height: 32rem;">
+                      <div class="card-header candidateNum">Number</div>
+                      <!-- <div style="background-image: url(images/download.png); background-size: cover; background-repeat: no-repeat; background-position: center; height:100px; width:100px; border-radius: 50%;">
+                        <img class="card-img-top" src="images/download.png" alt="Candidate Image"> 
+                      </div> -->
+                      <img class="card-img-top" src="images/user.png" alt="Candidate Image">
+                      
+                      <div class="card-body">
+                        <h5 class="candidateName">Name </h5>
+                        <p class="candidateVotes"> Votes</p>
+                        <button class="btn vote-btn">Vote</button>
+                      </div>
+                    </div>
+                  
               </div>
             </div>
             <!-- <table id="candidateList" class="table" style="color: white;">
