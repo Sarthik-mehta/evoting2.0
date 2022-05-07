@@ -53,7 +53,7 @@
   "sourceMap": "66:352:0:-;;;90:33;;;-1:-1:-1;;;;;;90:33:0;113:10;90:33;;;66:352;5:2:-1;;;;30:1;27;20:12;5:2;66:352:0;;;;;;;",
   "deployedSourceMap": "66:352:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:352:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;127:36;;;:::i;:::-;;;;;;;;;;;;;;;;90:33;;;:::i;:::-;;;;-1:-1:-1;;;;;90:33:0;;;;;;;;;;;;;;313:103;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;313:103:0;;:::i;:::-;;127:36;;;;:::o;90:33::-;;;-1:-1:-1;;;;;90:33:0;;:::o;313:103::-;225:5;;-1:-1:-1;;;;;225:5:0;211:10;:19;196:101;;;;-1:-1:-1;;;196:101:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;375:24;:36;313:103::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract Migrations {\n  address public owner = msg.sender;\n  uint public last_completed_migration;\n\n  modifier restricted() {\n    require(\n      msg.sender == owner,\n      \"This function is restricted to the contract's owner\"\n    );\n    _;\n  }\n\n  function setCompleted(uint completed) public restricted {\n    last_completed_migration = completed;\n  }\n}\n",
-  "sourcePath": "C:\\Users\\Sarthik Mehta\\Desktop\\evoting2.0\\contracts\\Migrations.sol",
+  "sourcePath": "/Users/pranavgupta/Documents/pranav fork/evoting2.0/contracts/Migrations.sol",
   "ast": {
     "absolutePath": "project:/contracts/Migrations.sol",
     "exportedSymbols": {
@@ -915,12 +915,21 @@
     "5777": {
       "events": {},
       "links": {},
+<<<<<<< HEAD
       "address": "0xD45EBb493Ed901a9dcf3FF295bfc6A69a3f234fA",
       "transactionHash": "0x36503690dd9ba1a8519eae78e033aacf5df9854603b3da89139b05595c36ddcc"
     }
   },
   "schemaVersion": "3.4.7",
   "updatedAt": "2022-05-07T12:18:23.104Z",
+=======
+      "address": "0x4b96F4e9e821b77706d4d4e4917a0BcE97994558",
+      "transactionHash": "0xecad2d558e682c4f72a2f10058335b09b392e2631f309418163c17319dfd60f0"
+    }
+  },
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2022-05-06T05:57:55.176Z",
+>>>>>>> ff9856516a95034a65e3ed9c610bc3091183d70a
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
