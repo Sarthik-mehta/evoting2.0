@@ -1,6 +1,11 @@
 # evoting2.0
 An e-voting system based on ethereum Blockchain, solidity, truffle, and Javascript.
 
+## Steps to run e-voting application:
+1) Run Local Ganasche Blockchain on your system.
+2) Run truffle migrate --reset
+3) npm run dev
+
 ## To Compile the contract
 ```
 truffle migrate
